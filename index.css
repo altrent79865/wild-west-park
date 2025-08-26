@@ -51,9 +51,10 @@ body {
 /* Typography */
 h1,
 h2,
-h3, h4 {
-  font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Arial,
-    sans-serif;
+h3,
+h4 {
+  font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
+    Arial, sans-serif;
   margin: 0 0 var(--space-2);
 }
 h1 {
@@ -248,10 +249,12 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
   padding: var(--space-6) 0;
 }
 
-.hero-text h2, .hero-free-text, h3 {
-  color: var(--brand-logo)
+.hero-text h2,
+.hero-free-text,
+h3 {
+  color: var(--brand-logo);
 }
-  
+
 .hero p {
   max-width: 60ch;
   margin-inline: auto;
@@ -541,7 +544,7 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
 
 .safety-photo {
   height: 90%;
-  width: auto
+  width: auto;
 }
 
 .unsubscribe-text {
@@ -694,7 +697,7 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
 }
 @media (max-width: 420px) {
   .brand {
-    font-size: 0.95rem;
+    font-size: 1.15rem;
   }
   .kv span {
     min-width: 100px;
