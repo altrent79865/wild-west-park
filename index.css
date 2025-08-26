@@ -5,6 +5,8 @@
 
 :root {
   --bg: #fffdf9;
+  --h3-brand-color: #310d00;
+  --brand-logo: #501c0c;
   --ink: #2e2a24;
   --muted: #4f463a;
   --brand: #8a5a2b;
@@ -17,7 +19,7 @@
   --step--1: 0.95rem;
   --step-0: 1.0625rem;
   --step-1: 1.25rem;
-  --step-2: 1.6rem;
+  --step-2: 1.75rem;
   --step-3: 2.2rem;
   --step-4: 3rem;
   --space-1: 12px;
@@ -49,8 +51,8 @@ body {
 /* Typography */
 h1,
 h2,
-h3 {
-  font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+h3, h4 {
+  font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Arial,
     sans-serif;
   margin: 0 0 var(--space-2);
 }
@@ -63,8 +65,15 @@ h2 {
   font-weight: 700;
   font-size: var(--step-3);
   line-height: 1.15;
+  color: var(--brand-dark);
 }
 h3 {
+  font-weight: 700;
+  font-size: var(--step-2);
+  line-height: 1.2;
+  color: var(--brand-dark);
+}
+h4 {
   font-weight: 700;
   font-size: var(--step-1);
   line-height: 1.2;
@@ -86,6 +95,7 @@ ul {
 /* ===== Header ===== */
 .site-header {
   position: sticky;
+  height: 90px;
   top: 0;
   z-index: 30;
   background-color: var(--bg);
@@ -99,13 +109,32 @@ ul {
   gap: var(--space-2);
 }
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font: 700 1.05rem/1 Montserrat, sans-serif;
+  /* font-family: var(--font-heading); */
+  font-weight: 700;
+  font-size: 22px;
   text-decoration: none;
   color: var(--brand-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--brand-logo);
 }
+.brand-logo {
+  height: 3em;
+  color: var(--brand-logo);
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.75em;
+  margin-left: -12px;
+  border-radius: 6px;
+  object-fit: contain;
+  object-position: center;
+  position: relative;
+  margin-top: 14px;
+  top: -1em;
+}
+
 .brand-mark {
   display: grid;
   place-items: center;
@@ -218,6 +247,11 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
 .hero-inner {
   padding: var(--space-6) 0;
 }
+
+.hero-text h2, .hero-free-text, h3 {
+  color: var(--brand-logo)
+}
+  
 .hero p {
   max-width: 60ch;
   margin-inline: auto;
@@ -264,6 +298,10 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
 }
 .btn:active {
   transform: translateY(1px);
+}
+
+.btn-calendar {
+  margin-top: 21px;
 }
 
 .hero-text {
@@ -400,6 +438,7 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
 .pill {
   display: inline-block;
@@ -498,6 +537,16 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
 }
 #explore .card-body {
   padding: var(--space-2);
+}
+
+.safety-photo {
+  height: 90%;
+  width: auto
+}
+
+.unsubscribe-text {
+  margin-top: 13px;
+  font-size: 14px;
 }
 
 /* ===== Down: tablet & phone ===== */
