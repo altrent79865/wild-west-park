@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wild West Family Park • Boise, Idaho</title>
+  <meta name="description" content="Boise’s free, western-themed family park—rope bridges, splash yard, prairie gardens, and community events. Open daily, free admission." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <!-- ===== Header with animated hamburger / drawer ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top"><span class="brand-mark">WW</span> Wild West Family Park</a>
+
+      <!-- Hamburger button (phones). No text. Animated to X. -->
+      <button class="menu-toggle" aria-label="Open navigation" aria-controls="primary-nav" aria-expanded="false">
+        <span class="hamburger" aria-hidden="true">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
+      </button>
+
+      <!-- Drawer / desktop nav (same element) -->
+      <nav id="primary-nav" class="nav nav-drawer" aria-label="Primary">
+        <a href="#why">Why Families Love It</a>
+        <a href="#explore">Explore</a>
+        <a href="#visit">Plan Your Visit</a>
+        <a href="#events">Events</a>
+        <a href="#support">Support</a>
+        <a href="#faqs">FAQs</a>
+      </nav>
+    </div>
+
+    <!-- Backdrop while drawer is open -->
+    <div class="drawer-backdrop" hidden></div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="top"
+           style="--hero-image: url('assets/hero.jpg');"
+           aria-label="Welcome to Wild West Family Park">
+    <div class="container hero-inner">
+      <h1>Boise’s Free, Western-Themed Family Park</h1>
+      <p>Round up the crew for rope bridges, splash zones, giant slides, prairie gardens, and live community events—free, all day.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#visit">Plan Your Visit</a>
+        <a class="btn btn-ghost" href="#events">Upcoming Events</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY ===== -->
+  <section class="section" id="why">
+    <div class="container grid-2">
+      <figure class="photo"><img src="assets/why.jpg" alt="Accessible play structures with families enjoying the park"></figure>
+      <div>
+        <h2>Why Families Love It</h2>
+        <ul class="bullets">
+          <li><strong>Always Free:</strong> Open daily, no admission.</li>
+          <li><strong>Designed for All Ages:</strong> Toddler corral to teen challenge course.</li>
+          <li><strong>Inclusive & Accessible:</strong> Ramps, adaptive swings, sensory-friendly nooks.</li>
+          <li><strong>Nature + Play:</strong> Native plants, pollinator paths, creek-side seating.</li>
+          <li><strong>Community Hub:</strong> Storytimes, music on the lawn, seasonal festivals.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPLORE ===== -->
+  <section class="section alt" id="explore">
+    <div class="container">
+      <h2>Explore the Park</h2>
+      <div class="card-grid">
+        <article class="card">
+          <figure class="card-photo"><img src="assets/pioneer-town.jpg" alt="Pioneer Town mini main street with wooden storefronts"></figure>
+          <div class="card-body"><h3>Pioneer Town</h3><p>A mini main street with climbable storefronts, a “bank” tunnel maze, swinging saloon doors, and a hand-crank bell tower—perfect for imaginative play.</p></div>
+        </article>
+        <article class="card">
+          <figure class="card-photo"><img src="assets/fort.jpg" alt="Multi-level timber fort with towers and rope bridges"></figure>
+          <div class="card-body"><h3>High Desert Fort</h3><p>A towering fort with lookout towers, rope bridges, twisty slides, and a boulder scramble modeled after the Boise Foothills.</p></div>
+        </article>
+        <article class="card">
+          <figure class="card-photo"><img src="assets/silver-spur-splash.png" alt="Silver Spur Splash Yard water play area"></figure>
+          <div class="card-body"><h3>Silver Spur Splash Yard (seasonal)</h3><p>Water jets, sluice channels, and pump-and-pour tables where kids “pan for gold.” Zero-depth entry and non-slip surfaces.</p></div>
+        </article>
+        <article class="card">
+          <figure class="card-photo"><img src="assets/rail-yard-run.jpg" alt="Rail Yard Run with balance track and caboose climber"></figure>
+          <div class="card-body"><h3>Rail Yard Run</h3><p>A balance-beam “track,” caboose climber, spinner bowls, and a zip-line glide for big-kid thrills.</p></div>
+        </article>
+        <article class="card">
+          <figure class="card-photo"><img src="assets/little-homesteaders.png" alt="Toddler play zone with low climbers and shade"></figure>
+          <div class="card-body"><h3>Little Homesteaders</h3><p>A fenced toddler zone with low climbers, musical panels, gentle slides, and benches right at the edge.</p></div>
+        </article>
+        <article class="card">
+          <figure class="card-photo"><img src="assets/prairie-garden.jpg" alt="Prairie garden with swings and quiet nooks"></figure>
+          <div class="card-body"><h3>Prairie Garden & Quiet Nooks</h3><p>Butterfly-friendly plantings, shaded hammocks, porch-style swings, and sensory-calm corners for breaks.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISIT ===== -->
+  <section class="section" id="visit">
+    <div class="container grid-2">
+      <div>
+        <h2>Plan Your Visit</h2>
+        <ul class="kv">
+          <li><span>Location</span> Near the Boise River Greenbelt, minutes from downtown.</li>
+          <li><span>Hours</span> Open daily, dawn to dusk (splash yard late spring–early fall).</li>
+          <li><span>Cost</span> Free admission.</li>
+          <li><span>Parking</span> On-site lot + bike racks; ADA spaces near the main gate.</li>
+          <li><span>Transit</span> Greenbelt access; bus stop: “Wild West Family Park”.</li>
+          <li><span>Restrooms</span> Family restrooms with changing tables; water refill stations.</li>
+          <li><span>Food</span> Picnics welcome; weekend food trucks seasonally.</li>
+          <li><span>Accessibility</span> Smooth paths, ramped structures, adaptive swings, sensory maps.</li>
+        </ul>
+        <p class="pro-tip">Pro tip: Summer mornings are coolest—bring towels for the splash yard and sunscreen year-round.</p>
+      </div>
+      <figure class="photo"><img src="assets/visit.png" alt="Wayfinding kiosk and picnic area near the greenbelt"></figure>
+    </div>
+  </section>
+
+  <!-- ===== EVENTS ===== -->
+  <section class="section alt" id="events">
+    <div class="container grid-2">
+      <figure class="photo"><img src="assets/events.jpg" alt="Families enjoying music on the meadow at sunset"></figure>
+      <div>
+        <h2>Events & Programs</h2>
+        <ul class="bullets">
+          <li><strong>Storytime on the Porch (weekly):</strong> Tall tales with Boise Public Library.</li>
+          <li><strong>Music on the Meadow (monthly):</strong> Local artists, blankets on the lawn.</li>
+          <li><strong>Frontier Skills Day (seasonal):</strong> Knot-tying, orienteering, nature crafts.</li>
+          <li><strong>Starlight Cinema (summer):</strong> Outdoor family movies at dusk.</li>
+          <li><strong>Volunteer Saturdays:</strong> Garden tending and trail cleanups.</li>
+        </ul>
+        <a class="btn btn-primary" href="#support">See Calendar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SAFETY ===== -->
+  <section class="section" id="safety">
+    <div class="container grid-2">
+      <div>
+        <h2>Safety & Park Etiquette</h2>
+        <ul class="bullets">
+          <li>Trained park hosts on site during peak hours.</li>
+          <li>Shaded structures, temperature-tested surfaces, impact-safe materials.</li>
+          <li>Please supervise children, share kindly, and keep wheels slow in crowds.</li>
+          <li>Service animals welcome; pets leashed in designated areas only.</li>
+        </ul>
+      </div>
+      <figure class="photo"><img src="assets/safety.jpg" alt="Park host assisting a family near a shaded play area"></figure>
+    </div>
+  </section>
+
+  <!-- ===== SUPPORT ===== -->
+  <section class="section alt" id="support">
+    <div class="container grid-2">
+      <figure class="photo"><img src="assets/support.jpg" alt="Volunteers planting and installing a sponsored bench"></figure>
+      <div>
+        <h2>Support the Park</h2>
+        <p>Wild West Family Park is free thanks to community partners and donors.</p>
+        <div class="pill-row">
+          <a class="pill" href="#">Donate</a>
+          <a class="pill" href="#">Volunteer</a>
+          <a class="pill" href="#">Become a Sponsor</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ / NEWSLETTER ===== -->
+  <section class="section" id="faqs">
+    <div class="container grid-2">
+      <div>
+        <h2>FAQs</h2>
+        <details open><summary>Is it really free?</summary><p>Yes—admission and most programs are free. Some special events may have optional concessions.</p></details>
+        <details><summary>Are there age limits?</summary><p>Zones are marked by recommended ages (2–5, 5–12, 10+), but families can explore together.</p></details>
+        <details><summary>What about weather closures?</summary><p>We’re open in most conditions. The splash yard and some structures may close for lightning, smoke, or ice; check our alerts.</p></details>
+      </div>
+      <figure class="photo"><img src="assets/faqs.jpg" alt="Information kiosk with park FAQs and map"></figure>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIAL + NEWSLETTER ===== -->
+  <section class="section alt" id="social">
+    <div class="container grid-2">
+      <blockquote class="quote">“It’s like stepping into a storybook frontier—our kids never want to leave.”</blockquote>
+      <form class="newsletter" action="#" method="post" aria-label="Subscribe to park newsletter">
+        <label for="email">Get event updates and seasonal openings</label>
+        <div class="field-row">
+          <input id="email" type="email" placeholder="Email address" required />
+          <button class="btn btn-primary" type="submit">Subscribe</button>
+        </div>
+        <small>We’ll only send park news. Unsubscribe anytime.</small>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Wild West Family Park, Boise, Idaho • Open daily, dawn to dusk</p>
+      <p>Contact: <a href="mailto:hello@wildwestfamilypark.org">hello@wildwestfamilypark.org</a></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
