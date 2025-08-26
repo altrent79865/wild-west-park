@@ -688,6 +688,32 @@ h3 {
   }
 }
 
+/* --- Lock the page when the drawer is open (mobile) --- */
+@media (max-width: 896px) {
+  /* stop background scroll */
+  body.drawer-open {
+    overflow: hidden;
+    touch-action: none; /* block pinch/scroll gestures behind drawer */
+    overscroll-behavior: contain; /* stop rubber-band / parent scrolling */
+  }
+
+  /* ensure the backdrop eats touch/scroll gestures */
+  .drawer-backdrop {
+    touch-action: none;
+  }
+
+  /* isolate the drawer so it can't create page overflow */
+  .nav.nav-drawer {
+    contain: paint; /* prevents accidental layout/overflow side effects */
+  }
+}
+
+/* --- Remove any sneaky horizontal scroll globally --- */
+html,
+body {
+  overflow-x: hidden;
+}
+
 /* =========================================
      DESKTOP RESET (≥ 897px)
      ========================================= */
@@ -764,22 +790,28 @@ h3 {
   }
 }
 
-/* Footer "Open daily" text */
-.footer-open::before {
-  content: " • "; /* show dot only on larger viewports */
+/* Footer base */
+.site-footer p {
+  margin: 0;
 }
 
+/* Footer "Open daily" text — desktop/tablet shows bullet inline */
+.footer-open::before {
+  content: " • ";
+}
+
+/* Mobile: put "Open daily…" on its own line and remove bullet */
 @media (max-width: 680px) {
   .footer-open::before {
-    content: ""; /* remove dot on mobile */
+    content: "";
   }
   .footer-open {
-    display: block; /* force to new line */
+    display: block; /* moves to next line */
     margin-top: 4px;
   }
 }
 
-/* Fix misalignment at mid widths */
+/* Mid widths: align Contact with the first line (no vertical centering) */
 @media (max-width: 1100px) {
   .footer-inner {
     align-items: flex-start;
