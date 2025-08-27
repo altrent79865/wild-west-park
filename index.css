@@ -368,7 +368,7 @@ h3 {
 
 .grid-2 {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-5);
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
 }
@@ -521,14 +521,13 @@ h3 {
      Plan Your Visit — alignment fix
      ================================ */
 #visit .grid-2 {
-  align-items: start;
-  gap: var(--space-3);
+  align-items: center;
 }
 #visit figure {
   margin: 0;
 }
 #visit .photo {
-  align-self: start;
+  align-self: auto;
 }
 #visit .photo img {
   display: block;
@@ -603,6 +602,9 @@ h3 {
   }
   .nav-drawer {
     z-index: 1000;
+  }
+  #visit .grid-2 {
+    align-items: start;
   }
 
   /* Drawer lives below fixed header */
