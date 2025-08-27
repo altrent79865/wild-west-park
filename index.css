@@ -100,7 +100,7 @@ ul {
 
 /* Layout container */
 .container {
-  width: min(var(--container), 92vw);
+  width: min(var(--container), 91vw);
   margin-inline: auto;
 }
 
@@ -120,7 +120,7 @@ ul {
   justify-content: space-between; /* brand left, nav right */
   padding: 0;
   position: relative;
-  padding-top: 10px; /* your shift-down */
+  padding-top: 7px; /* your shift-down */
 }
 
 /* Brand — baseline aligned with tabs */
@@ -143,13 +143,13 @@ ul {
   text-decoration: none;
 }
 .brand-logo {
-  height: 2.75em;
+  height: 2.35em;
   width: auto;
   color: var(--brand-logo);
   display: inline-block;
   vertical-align: middle;
   margin-right: 0.75em;
-  margin-left: -12px;
+  margin-left: -3px;
   border-radius: 6px;
   object-fit: contain;
   object-position: center;
@@ -174,7 +174,7 @@ ul {
   padding: 0.35rem 0.6rem; /* fixed across states to avoid reflow */
   line-height: 1; /* lock line-height so header doesn’t change */
   font-weight: 600;
-  color: var(--muted);
+  color: var(--brand-dark);
   text-decoration: none;
   border-radius: 999px;
   -webkit-tap-highlight-color: transparent;
@@ -567,7 +567,7 @@ h3 {
 }
 .unsubscribe-text {
   margin-top: 13px;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 /* =========================================
@@ -597,7 +597,7 @@ h3 {
     right: 0;
     bottom: 0;
     left: auto;
-    width: min(86vw, 360px);
+    width: min(80vw, 260px);
     height: calc(100dvh - var(--header-h));
     max-height: calc(100dvh - var(--header-h));
     overflow-y: auto;
@@ -616,7 +616,7 @@ h3 {
   .nav.nav-drawer a {
     display: block;
     width: 100%;
-    padding: 0.9rem 0;
+    padding: 0.9rem 30px;
     border-bottom: 1px solid #f0e6d6;
     color: var(--brand-dark);
     font-size: 1.0625rem;
@@ -763,13 +763,28 @@ body {
     min-height: 56vh;
   }
 }
-@media (max-width: 420px) {
+/* Smallest phones: stack key/value in #visit */
+@media (max-width: 389px) {
   .brand {
     font-size: 1.2rem;
+    gap: 0;
   }
-  .kv span {
-    min-width: 100px;
+
+  .hero-more-text {
+    margin-left: -16px;
   }
+
+  /* Stack the "key : value" pairs */
+  #visit .kv li {
+    display: grid; /* keep grid so gaps still work */
+    grid-template-columns: 1fr; /* one column = value goes under label */
+    row-gap: 0.15rem;
+  }
+
+  #visit .kv span {
+    min-width: 0; /* override the desktop min-width */
+  }
+
   .cta-row {
     gap: 10px;
   }
@@ -815,5 +830,28 @@ body {
 @media (max-width: 1100px) {
   .footer-inner {
     align-items: flex-start;
+  }
+}
+
+/* Newsletter form – mobile layout */
+@media (max-width: 550px) {
+  .newsletter .field-row {
+    display: flex;
+    flex-wrap: wrap; /* allow wrap to 2 rows */
+    gap: 10px;
+  }
+
+  .newsletter .field-row input[type="email"],
+  .newsletter .field-row input {
+    flex: 1 1 100%; /* take full row width */
+    width: 100%;
+    min-width: 0; /* prevent overflow */
+    box-sizing: border-box;
+  }
+
+  .newsletter .field-row button {
+    flex: 1 1 100%; /* move to second row, full width */
+    width: 100%;
+    margin-top: 4px;
   }
 }
