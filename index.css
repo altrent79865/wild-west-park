@@ -206,9 +206,10 @@ ul {
   top: calc(50% + 2px); /* matches .nav translateY(2px) */
   transform: translateY(-50%);
 }
-.menu-toggle:focus-visible {
-  outline: 2px solid #cfa77866;
-  outline-offset: 3px;
+.menu-toggle:focus,
+.menu-toggle:active {
+  outline: none;
+  box-shadow: none;
 }
 
 /* Icon bars */
@@ -277,6 +278,15 @@ h3 {
   opacity: 0.95;
   font-size: var(--step-1);
 }
+
+.hero-free-text {
+  font-size: var(--step-1);
+  font-weight: 600;
+  color: var(--brand-logo);
+  text-align: center;
+  margin: 0 auto;
+  white-space: nowrap;
+}
 .cta-row {
   display: flex;
   gap: 12px;
@@ -289,7 +299,7 @@ h3 {
   display: inline-block;
   padding: 0.75rem 1rem;
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 500;
   text-decoration: none;
   border: 2px solid transparent;
   transition: transform 0.18s ease, background-color 0.18s ease,
@@ -299,6 +309,7 @@ h3 {
 .btn-primary {
   background: var(--brand);
   color: #fff;
+  font-size: 17px;
 }
 .btn-primary:hover {
   background: var(--brand-dark);
@@ -468,7 +479,7 @@ h3 {
   background: var(--brand);
   color: #fff;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 500;
   min-height: 40px;
 }
 .pill:hover {
@@ -763,6 +774,7 @@ body {
     min-height: 56vh;
   }
 }
+
 /* Smallest phones: stack key/value in #visit */
 @media (max-width: 389px) {
   .brand {
