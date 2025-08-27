@@ -272,7 +272,7 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
   text-align: center;
 
   /* 👇 keeps it from being too short or too tall */
-  min-height: clamp(220px, 42vh, 520px);
+  min-height: clamp(260px, 55vh, 640px);
 }
 .hero-inner {
   padding: var(--space-6) 0;
@@ -757,16 +757,6 @@ body {
   }
 }
 
-@media (max-width: 480px) {
-  .hero {
-    /* shave a bit more height on the smallest screens */
-    min-height: clamp(200px, 38vh, 460px);
-  }
-  .hero-inner {
-    padding: 28px 0; /* reduce inner spacing so the block feels shorter */
-  }
-}
-
 /* Newsletter form – mobile layout */
 @media (max-width: 550px) {
   .newsletter .field-row {
@@ -787,6 +777,18 @@ body {
     flex: 1 1 100%; /* move to second row, full width */
     width: 100%;
     margin-top: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    /* 66vh is your desktop default — override just for small screens */
+    min-height: clamp(240px, 45vh, 380px); /* trims ~30% on phones */
+  }
+
+  /* Optional: tighten inner padding a bit so text doesn't force extra height */
+  .hero-inner {
+    padding: clamp(20px, 6vh, 40px) 0;
   }
 }
 
