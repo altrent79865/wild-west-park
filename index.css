@@ -218,6 +218,7 @@ ul {
   display: inline-block;
   width: 26px;
   height: 20px;
+  overflow: hidden;
 }
 .hamburger .bar {
   position: absolute;
@@ -228,15 +229,21 @@ ul {
   border-radius: 2px;
   transform-origin: center;
   transition: transform 0.25s ease, opacity 0.2s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
 }
 .hamburger .bar:nth-child(1) {
   top: 0;
+  bottom: auto;
 }
 .hamburger .bar:nth-child(2) {
   top: 9px;
+  bottom: auto;
 }
 .hamburger .bar:nth-child(3) {
-  bottom: 0;
+  top: 18px;
+  bottom: auto;
 }
 
 /* Hamburger ↔ X animation */
