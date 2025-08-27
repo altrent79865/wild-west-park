@@ -523,9 +523,7 @@ h3 {
 #visit .grid-2 {
   align-items: center;
 }
-#visit figure {
-  margin: 0;
-}
+
 #visit .photo {
   align-self: auto;
 }
@@ -662,28 +660,6 @@ h3 {
     pointer-events: auto;
   }
 
-  /* collapse 2-col to 1-col */
-  .grid-2 {
-    grid-template-columns: 1fr;
-  }
-
-  /* photo first, text second for these sections */
-  #visit .grid-2 > figure,
-  #events .grid-2 > figure,
-  #safety .grid-2 > figure,
-  #support .grid-2 > figure,
-  #faqs .grid-2 > figure {
-    order: 1;
-  }
-
-  #visit .grid-2 > :not(figure),
-  #events .grid-2 > :not(figure),
-  #safety .grid-2 > :not(figure),
-  #support .grid-2 > :not(figure),
-  #faqs .grid-2 > :not(figure) {
-    order: 2;
-  }
-
   /* full-width photos for those sections on mobile */
   #visit .photo,
   #events .photo,
@@ -710,6 +686,19 @@ h3 {
 
 /* --- Lock the page when the drawer is open (mobile) --- */
 @media (max-width: 896px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ensure photo div comes first, text comes second */
+  .grid-2 > .photo,
+  .grid-2 > .card-photo {
+    order: 1;
+  }
+
+  .grid-2 > :not(.photo):not(.card-photo) {
+    order: 2;
+  }
   /* stop background scroll */
   body.drawer-open {
     overflow: hidden;
@@ -831,11 +820,6 @@ body {
 /* Footer base */
 .site-footer p {
   margin: 0;
-}
-
-/* Footer "Open daily" text — desktop/tablet shows bullet inline */
-.footer-open::before {
-  content: " • ";
 }
 
 /* Mobile: put "Open daily…" on its own line and remove bullet */
