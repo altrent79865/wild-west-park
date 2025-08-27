@@ -263,13 +263,15 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
 
 /* ===== Hero ===== */
 .hero {
-  min-height: 66vh;
+  width: 100%;
+  height: auto; /* remove vh lock */
   display: grid;
   place-items: center;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25)),
     var(--hero-image) center/cover no-repeat;
   color: #fff;
   text-align: center;
+  aspect-ratio: 2.2 / 1;
 }
 .hero-inner {
   padding: var(--space-6) 0;
@@ -723,55 +725,9 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================================
-     DESKTOP RESET (≥ 897px)
-     ========================================= */
-@media (min-width: 897px) {
-  .menu-toggle {
-    display: none;
-  }
-  .site-header .nav-drawer {
-    position: static;
-    width: auto;
-    height: auto;
-    max-height: none;
-    overflow: visible;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    transform: none;
-    transition: none;
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-  }
-  .drawer-backdrop {
-    display: none !important;
-  }
-}
-
-/* Narrow screens */
-@media (max-width: 680px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-  }
-  h1 {
-    font-size: 2.4rem;
-  }
-  h2 {
-    font-size: 1.8rem;
-  }
-  .section {
-    padding: 40px 0;
-  }
-  .hero-inner {
-    padding: 48px 0;
-  }
-  .hero {
-    min-height: 56vh;
-  }
-}
+/* ==================================
+     Media Queries
+     ============================ */
 
 /* Smallest phones: stack key/value in #visit */
 @media (max-width: 389px) {
@@ -800,46 +756,6 @@ body {
   }
 }
 
-/* Footer "Open daily" text */
-.footer-open::before {
-  content: " • "; /* show dot only on larger viewports */
-  margin: 0 0.4em;
-}
-
-@media (max-width: 680px) {
-  .footer-open::before {
-    content: ""; /* remove dot on mobile */
-    margin: 0;
-  }
-  .footer-open {
-    display: block; /* force to new line */
-    margin-top: 4px;
-  }
-}
-
-/* Footer base */
-.site-footer p {
-  margin: 0;
-}
-
-/* Mobile: put "Open daily…" on its own line and remove bullet */
-@media (max-width: 680px) {
-  .footer-open::before {
-    content: "";
-  }
-  .footer-open {
-    display: block; /* moves to next line */
-    margin-top: 4px;
-  }
-}
-
-/* Mid widths: align Contact with the first line (no vertical centering) */
-@media (max-width: 1100px) {
-  .footer-inner {
-    align-items: flex-start;
-  }
-}
-
 /* Newsletter form – mobile layout */
 @media (max-width: 550px) {
   .newsletter .field-row {
@@ -860,5 +776,73 @@ body {
     flex: 1 1 100%; /* move to second row, full width */
     width: 100%;
     margin-top: 4px;
+  }
+}
+
+/* Narrow screens */
+@media (max-width: 680px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .section {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 719px) {
+  .footer-open {
+    display: block; /* force to new line */
+    margin-top: 4px;
+  }
+  /* Footer base */
+  .site-footer p {
+    margin: 0;
+  }
+  .footer-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-inner > *:last-child {
+    flex-basis: 100%;
+    margin-top: 4px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 897px) {
+  .menu-toggle {
+    display: none;
+  }
+  .site-header .nav-drawer {
+    position: static;
+    width: auto;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transform: none;
+    transition: none;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+  .drawer-backdrop {
+    display: none !important;
+  }
+}
+
+/* Mid widths: align Contact with the first line (no vertical centering) */
+@media (max-width: 1100px) {
+  .footer-inner {
+    align-items: flex-start;
   }
 }
