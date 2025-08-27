@@ -814,11 +814,13 @@ body {
 /* Footer "Open daily" text */
 .footer-open::before {
   content: " • "; /* show dot only on larger viewports */
+  margin: 0 0.4em;
 }
 
 @media (max-width: 680px) {
   .footer-open::before {
     content: ""; /* remove dot on mobile */
+    margin: 0;
   }
   .footer-open {
     display: block; /* force to new line */
