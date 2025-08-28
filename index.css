@@ -266,8 +266,7 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
   width: 100%;
   display: grid;
   place-items: center;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25)),
-    var(--hero-image) center/cover no-repeat;
+  background: var(--hero-image) center/cover no-repeat;
   color: #fff;
   text-align: center;
 
@@ -320,6 +319,7 @@ h3 {
   background: var(--brand);
   color: #fff;
   font-size: 17px;
+  cursor: pointer;
 }
 .btn-primary:hover {
   background: var(--brand-dark);
