@@ -376,6 +376,18 @@ h3 {
   align-items: start;
 }
 
+.photo-container .photo-caption {
+  text-align: center;
+  font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
+    Arial, sans-serif;
+  color: var(--ink);
+  font-size: var(--step-0);
+  margin: 0.5rem 0 0;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+}
+
 .photo,
 .card-photo {
   border-radius: var(--radius);
@@ -523,7 +535,7 @@ h3 {
 /* ================================
      Plan Your Visit — alignment fix
      ================================ */
-#visit .grid-2 {
+/* #visit .grid-2 {
   align-items: center;
 }
 
@@ -551,7 +563,7 @@ h3 {
 }
 #visit .pro-tip {
   margin-top: 0.75rem;
-}
+} */
 
 /* ================================
      Explore — equal image height + flush top
