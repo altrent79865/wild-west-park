@@ -620,6 +620,39 @@ details {
   margin-bottom: 15px;
 }
 
+ {
+   {
+    ...;
+  }
+}
+details {
+  margin-bottom: 15px;
+}
+
+details summary {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  list-style: none; /* Hide default marker */
+}
+
+details summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 8px; /* Adjust this value to control the space after the arrow */
+  font-size: 0.85em;
+  transition: transform 0.2s;
+}
+
+details[open] > summary::before {
+  content: "▼";
+}
+
+/* Hide the default marker */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
 /* =========================================
      MOBILE NAV (≤ 896px)
      ========================================= */
