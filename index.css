@@ -514,9 +514,10 @@ li {
   flex-wrap: wrap;
   margin-top: 20px;
 }
+
 .pill {
   display: inline-block;
-  padding: 0.6rem 0.9rem;
+  padding: 0.6rem 1.3rem;
   border-radius: 999px;
   background: var(--brand);
   color: #fff;
