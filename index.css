@@ -137,6 +137,7 @@ h3.bullets-header {
   align-items: center;
   gap: 0.5em;
   line-height: 1; /* prevent height shifts */
+  white-space: nowrap;
   transform: translateY(-1px); /* tiny nudge up so bottom matches tabs */
 }
 .brand:link,
