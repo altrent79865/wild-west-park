@@ -852,6 +852,7 @@ body {
 @media (max-width: 680px) {
   .card-grid {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
   h1 {
     font-size: 2.4rem;
