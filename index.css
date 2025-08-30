@@ -139,6 +139,8 @@ h3.bullets-header {
   line-height: 1; /* prevent height shifts */
   white-space: nowrap;
   transform: translateY(-1px); /* tiny nudge up so bottom matches tabs */
+  max-width: 100%;
+  overflow: hidden;
 }
 .brand:link,
 .brand:visited,
