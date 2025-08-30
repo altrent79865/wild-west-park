@@ -701,9 +701,10 @@ details summary::-webkit-details-marker {
     border-bottom: 1px solid #f0e6d6;
     color: var(--brand-dark);
     font-size: 1.0625rem;
+    background-color: white;
   }
   .nav.nav-drawer a:last-child {
-    border-bottom: none;
+    border-bottom: 1px solid #f0e6d6;
   }
 
   .drawer-backdrop {
