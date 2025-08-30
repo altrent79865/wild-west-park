@@ -798,6 +798,10 @@ body {
     gap: 0;
   }
 
+  .pill {
+    padding: 0.6rem 1.2rem;
+  }
+
   .hero-more-text {
     margin-left: -16px;
   }
