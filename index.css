@@ -360,7 +360,7 @@ h3 {
 
 /* ===== Sections & grids ===== */
 .section {
-  padding: var(--space-5) 0;
+  padding: var(--space-6) 0;
 }
 .section.alt {
   background: linear-gradient(180deg, #fffdf9, #f9f3ea);
@@ -590,11 +590,6 @@ h3 {
   padding: var(--space-2);
 }
 
-/* Misc */
-.safety-photo {
-  height: 90%;
-  width: auto;
-}
 .unsubscribe-text {
   margin-top: 13px;
   font-size: 15px;
