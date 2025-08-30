@@ -443,7 +443,7 @@ li {
   min-width: 140px;
   font-weight: 700;
   color: var(--brand-dark);
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
 }
 .pro-tip {
   margin-top: 0.4rem;
