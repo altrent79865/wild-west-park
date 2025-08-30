@@ -791,105 +791,10 @@ body {
      Media Queries
      ============================ */
 
-/* Smallest phones: stack key/value in #visit */
-@media (max-width: 389px) {
-  .brand {
-    font-size: 1.2rem;
-    gap: 0;
-  }
-
-  .pill {
-    padding: 0.6rem 1.2rem;
-  }
-
-  .hero-more-text {
-    margin-left: -16px;
-  }
-
-  /* Stack the "key : value" pairs */
-  #visit .kv li {
-    display: grid; /* keep grid so gaps still work */
-    grid-template-columns: 1fr; /* one column = value goes under label */
-    row-gap: 0.15rem;
-  }
-
-  #visit .kv span {
-    min-width: 0; /* override the desktop min-width */
-  }
-
-  .cta-row {
-    gap: 10px;
-  }
-}
-
-/* Newsletter form – mobile layout */
-@media (max-width: 550px) {
-  .newsletter .field-row {
-    display: flex;
-    flex-wrap: wrap; /* allow wrap to 2 rows */
-    gap: 10px;
-  }
-
-  .newsletter .field-row input[type="email"],
-  .newsletter .field-row input {
-    flex: 1 1 100%; /* take full row width */
-    width: 100%;
-    min-width: 0; /* prevent overflow */
-  }
-
-  .newsletter .field-row button {
-    flex: 1 1 100%; /* move to second row, full width */
-    width: 100%;
-    margin-top: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero {
-    /* 66vh is your desktop default — override just for small screens */
-    min-height: clamp(240px, 45vh, 380px); /* trims ~30% on phones */
-  }
-
-  /* Optional: tighten inner padding a bit so text doesn't force extra height */
-  .hero-inner {
-    padding: clamp(20px, 6vh, 40px) 0;
-  }
-}
-
-/* Narrow screens */
-@media (max-width: 680px) {
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-  h1 {
-    font-size: 2.4rem;
-  }
-  h2 {
-    font-size: 1.8rem;
-  }
-  .section {
-    padding: 40px 0;
-  }
-}
-
-@media (max-width: 719px) {
-  .footer-open {
-    display: block; /* force to new line */
-    margin-top: 4px;
-  }
-  /* Footer base */
-  .site-footer p {
-    margin: 0;
-  }
+/* Mid widths: align Contact with the first line (no vertical centering) */
+@media (max-width: 1100px) {
   .footer-inner {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .footer-inner > *:last-child {
-    flex-basis: 100%;
-    margin-top: 4px;
-    text-align: left;
+    align-items: flex-start;
   }
 }
 
@@ -918,9 +823,108 @@ body {
   }
 }
 
-/* Mid widths: align Contact with the first line (no vertical centering) */
-@media (max-width: 1100px) {
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 719px) {
+  .footer-open {
+    display: block; /* force to new line */
+    margin-top: 4px;
+  }
+  /* Footer base */
+  .site-footer p {
+    margin: 0;
+  }
   .footer-inner {
-    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-inner > *:last-child {
+    flex-basis: 100%;
+    margin-top: 4px;
+    text-align: left;
+  }
+}
+
+/* Narrow screens */
+@media (max-width: 680px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  .section {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    /* 66vh is your desktop default — override just for small screens */
+    min-height: clamp(240px, 45vh, 380px); /* trims ~30% on phones */
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .hero-inner {
+    padding: clamp(20px, 6vh, 40px) 0;
+  }
+}
+
+/* Newsletter form – mobile layout */
+@media (max-width: 550px) {
+  .newsletter .field-row {
+    display: flex;
+    flex-wrap: wrap; /* allow wrap to 2 rows */
+    gap: 10px;
+  }
+
+  .newsletter .field-row input[type="email"],
+  .newsletter .field-row input {
+    flex: 1 1 100%; /* take full row width */
+    width: 100%;
+    min-width: 0; /* prevent overflow */
+  }
+
+  .newsletter .field-row button {
+    flex: 1 1 100%; /* move to second row, full width */
+    width: 100%;
+    margin-top: 4px;
+  }
+}
+
+/* Smallest phones: stack key/value in #visit */
+@media (max-width: 389px) {
+  .brand {
+    font-size: 1.2rem;
+    gap: 0;
+  }
+
+  .pill {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .hero-more-text {
+    margin-left: -16px;
+  }
+
+  /* Stack the "key : value" pairs */
+  #visit .kv li {
+    display: grid; /* keep grid so gaps still work */
+    grid-template-columns: 1fr; /* one column = value goes under label */
+    row-gap: 0.15rem;
+  }
+
+  #visit .kv span {
+    min-width: 0; /* override the desktop min-width */
+  }
+
+  .cta-row {
+    gap: 10px;
   }
 }
