@@ -32,6 +32,8 @@
   --space-6: 64px;
   --container: 1100px;
   --header-h: 74px; /* fixed header height */
+  --font-stack: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
+    Arial, sans-serif;
 }
 
 * {
@@ -45,8 +47,7 @@ body {
 body {
   margin: 0;
   padding-top: var(--header-h); /* keep content below fixed header */
-  font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
-    Arial, sans-serif;
+  font-family: var(--font-stack);
   color: var(--ink);
   background: var(--bg);
   line-height: 1.55;
@@ -64,29 +65,23 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
-    Arial, sans-serif;
+  font-weight: 700;
   margin: 0 0 var(--space-2);
 }
 h1 {
-  font-weight: 700;
   font-size: var(--step-4);
   line-height: 1.1;
 }
 h2 {
-  font-weight: 700;
   font-size: var(--step-3);
   line-height: 1.15;
-  color: var(--brand-dark);
 }
 h3 {
-  font-weight: 700;
   font-size: var(--step-2);
   line-height: 1.2;
-  color: var(--brand-dark);
+  margin-bottom: 20px;
 }
 h4 {
-  font-weight: 700;
   font-size: var(--step-1);
   line-height: 1.2;
 }
@@ -96,6 +91,15 @@ p {
 ul {
   margin: 0 0 var(--space-2) 0;
   padding: 0 0 0 1.1em;
+}
+
+h2,
+h3 {
+  color: var(--brand-dark);
+}
+
+h3.bullets-header {
+  margin-bottom: 12px;
 }
 
 /* Layout container */
@@ -379,8 +383,6 @@ h3 {
 
 .photo-container .photo-caption {
   text-align: center;
-  font-family: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
-    Arial, sans-serif;
   color: var(--ink);
   font-size: var(--step-0);
   margin: 0.5rem 0 0;
@@ -410,18 +412,35 @@ h3 {
   display: grid;
   gap: 0.5rem;
 }
+
+li {
+  margin-top: 10px;
+}
 .kv {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   gap: 0.55rem;
+  /* margin-top: 30px; */
+}
+
+/* li {
+  line-height: 1.4;
+} */
+
+.kv li {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0.5rem;
+  /* line-height: 1.2; */
 }
 .kv span {
   display: inline-block;
   min-width: 140px;
   font-weight: 700;
   color: var(--brand-dark);
+  margin-bottom: 8px;
 }
 .pro-tip {
   margin-top: 0.4rem;
@@ -595,6 +614,10 @@ h3 {
 .unsubscribe-text {
   margin-top: 13px;
   font-size: 15px;
+}
+
+details {
+  margin-bottom: 15px;
 }
 
 /* =========================================
@@ -779,7 +802,6 @@ body {
     flex: 1 1 100%; /* take full row width */
     width: 100%;
     min-width: 0; /* prevent overflow */
-    box-sizing: border-box;
   }
 
   .newsletter .field-row button {
