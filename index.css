@@ -620,15 +620,6 @@ details {
   margin-bottom: 15px;
 }
 
- {
-   {
-    ...;
-  }
-}
-details {
-  margin-bottom: 15px;
-}
-
 details summary {
   display: flex;
   align-items: center;
