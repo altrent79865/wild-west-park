@@ -135,7 +135,7 @@ h3.bullets-header {
   color: var(--brand-logo);
   display: inline-flex;
   align-items: center;
-  gap: 0.5em;
+  gap: 0.25em;
   line-height: 1; /* prevent height shifts */
   white-space: nowrap;
   transform: translateY(-1px); /* tiny nudge up so bottom matches tabs */
