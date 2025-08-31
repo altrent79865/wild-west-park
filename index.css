@@ -216,7 +216,6 @@ h3.bullets-header {
   min-width: 44px;
   color: var(--brand-dark);
   -webkit-tap-highlight-color: transparent;
-
   position: absolute;
   right: 14px;
   top: calc(50% + 2px); /* matches .nav translateY(2px) */
@@ -663,7 +662,7 @@ details summary::-webkit-details-marker {
 @media (max-width: 896px) {
   .menu-toggle {
     display: inline-flex;
-    right: -12px; /* mirror the logo's -12px */
+    right: -9px; /* mirror the logo's -12px */
     top: calc(50% + 2px); /* keep aligned with tabs */
     transform: translateY(-50%);
   }
