@@ -277,7 +277,7 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
   color: #fff;
   text-align: center;
 
-  /* 👇 keeps it from being too short or too tall */
+  /* keeps it from being too short or too tall */
   min-height: clamp(260px, 55vh, 640px);
 }
 .hero-inner {
@@ -690,10 +690,11 @@ details summary::-webkit-details-marker {
     transition: transform 0.28s ease;
     will-change: transform;
     padding: 18px;
-    display: flex !important;
-    flex-direction: column !important;
+    display: flex;
+    flex-direction: column;
     align-items: stretch;
   }
+
   .nav.nav-drawer a {
     display: block;
     width: 100%;
@@ -702,7 +703,34 @@ details summary::-webkit-details-marker {
     color: var(--brand-dark);
     font-size: 1.0625rem;
     background-color: white;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: default;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: background-color 0.2s ease;
   }
+
+  .nav.nav-drawer a:hover {
+    background-color: #f1e6d7;
+    color: var(--brand-dark);
+    cursor: pointer;
+  }
+
+  .nav.nav-drawer a:active {
+    background-color: #e8d9c5;
+  }
+
+  .nav.nav-drawer a:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
   .nav.nav-drawer a:last-child {
     border-bottom: 1px solid #f0e6d6;
   }
