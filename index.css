@@ -150,18 +150,17 @@ h3.bullets-header {
   text-decoration: none;
 }
 .brand-logo {
-  height: 2.35em;
+  height: auto;
+  max-height: 2.35em;
   width: auto;
-  color: var(--brand-logo);
-  display: inline-block;
-  vertical-align: middle;
+  display: block;
+  object-fit: contain;
   margin-right: 1em;
   margin-left: -3px;
   border-radius: 6px;
-  object-fit: contain;
   object-position: center;
   position: relative;
-  top: -7px; /* micro baseline tweak (was -8px) */
+  top: -4px;
 }
 
 /* Desktop tabs (right) — locked height across states */
