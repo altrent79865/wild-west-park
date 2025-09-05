@@ -36,6 +36,7 @@
     Arial, sans-serif;
   --hero-ar: 16 / 9;
   --hero-focus-y: 20%;
+  --hero-lock-h: 520px;
 }
 
 * {
@@ -285,12 +286,13 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
   display: grid;
   place-items: center;
   background: var(--hero-image) top center / cover no-repeat;
-  min-height: clamp(260px, 55vh, 640px);
   color: #fff;
   text-align: center;
 
-  /* keeps it from being too short or too tall */
-  min-height: clamp(260px, 55vh, 640px);
+  /* default: aspect-ratio on wider screens, no fixed height */
+  aspect-ratio: 16 / 9;
+  height: auto;
+  padding: 0;
 }
 .hero-inner {
   padding: var(--space-6) 0;
@@ -891,15 +893,43 @@ details summary::-webkit-details-marker {
 
 @media (max-width: 600px) {
   .hero {
-    /* 66vh is your desktop default — override just for small screens */
-    min-height: clamp(240px, 45vh, 380px);
+    height: 320px;
+    aspect-ratio: auto;
+    background-size: cover;
+    background-position: top center;
+    padding: 0;
+  }
+
+  .hero-inner {
+    padding: clamp(12px, 4vh, 24px) 0;
+    position: relative;
+    z-index: 1;
   }
   .card-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
   }
+}
+
+@media (max-width: 600px) and (min-width: 560px) {
+  .hero {
+    height: 360px;
+    background-position: top center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 440px) {
+  .hero {
+    height: 280px;
+    min-height: 0;
+    aspect-ratio: auto;
+    background-size: cover;
+    background-position: top center;
+  }
+
   .hero-inner {
-    padding: clamp(20px, 6vh, 40px) 0;
+    padding: clamp(12px, 4vh, 24px) 0;
   }
 }
 
@@ -953,31 +983,5 @@ details summary::-webkit-details-marker {
 
   .cta-row {
     gap: 10px;
-  }
-}
-/* ===== HERO: use the image's aspect ratio, no cropping, full-width ===== */
-.hero {
-  background-position: 50% var(--hero-focus-y);
-  aspect-ratio: var(--hero-ar);
-  min-height: 0 !important;
-  height: auto !important;
-}
-
-@media (max-width: 896px) {
-  .hero-inner {
-    padding: 0; /* prevent padding from breaking the exact ratio */
-  }
-}
-
-@media (min-width: 897px) {
-  .hero-inner {
-    padding: var(--space-6) 0;
-  }
-}
-
-@supports not (aspect-ratio: 1 / 1) {
-  .hero {
-    /* height = width * (H/W). Example below is for 16:9 (9/16) */
-    min-height: calc(100vw * (9 / 16));
   }
 }
