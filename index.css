@@ -36,7 +36,6 @@
     Arial, sans-serif;
   --hero-ar: 16 / 9;
   --hero-focus-y: 20%;
-  --hero-lock-h: 520px;
 }
 
 * {
@@ -891,12 +890,15 @@ details summary::-webkit-details-marker {
   }
 }
 
+/* Smooth transition between 440px and 600px */
 @media (max-width: 600px) {
   .hero {
-    height: 320px;
     aspect-ratio: auto;
-    background-size: cover;
-    background-position: top center;
+    /* Smoothly grows from ~280px at 440px wide to ~360px at 600px wide */
+    height: clamp(280px, calc(37.5vw + 115px), 360px);
+
+    background-size: cover;       /* crop sides instead of bottom */
+    background-position: top center; /* keep top visible */
     padding: 0;
   }
 
@@ -905,17 +907,10 @@ details summary::-webkit-details-marker {
     position: relative;
     z-index: 1;
   }
+
   .card-grid {
     grid-template-columns: 1fr;
     gap: var(--space-4);
-  }
-}
-
-@media (max-width: 600px) and (min-width: 560px) {
-  .hero {
-    height: 360px;
-    background-position: top center;
-    background-size: cover;
   }
 }
 
