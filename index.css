@@ -34,6 +34,8 @@
   --header-h: 74px; /* fixed header height */
   --font-stack: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
     Arial, sans-serif;
+  --hero-ar: 16 / 9;
+  --hero-focus-y: 20%;
 }
 
 * {
@@ -42,6 +44,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -281,7 +284,8 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
   width: 100%;
   display: grid;
   place-items: center;
-  background: var(--hero-image) center/cover no-repeat;
+  background: var(--hero-image) top center / cover no-repeat;
+  min-height: clamp(260px, 55vh, 640px);
   color: #fff;
   text-align: center;
 
@@ -656,9 +660,42 @@ details summary::-webkit-details-marker {
   display: none;
 }
 
-/* =========================================
-     MOBILE NAV (≤ 896px)
-     ========================================= */
+/* ==================================
+     Media Queries
+     ============================ */
+
+/* Mid widths: align Contact with the first line (no vertical centering) */
+@media (max-width: 1100px) {
+  .footer-inner {
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 897px) {
+  .menu-toggle {
+    display: none;
+  }
+  .site-header .nav-drawer {
+    position: static;
+    width: auto;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transform: none;
+    transition: none;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+  .drawer-backdrop {
+    display: none !important;
+  }
+}
+
 @media (max-width: 896px) {
   .menu-toggle {
     display: inline-flex;
@@ -782,10 +819,6 @@ details summary::-webkit-details-marker {
     display: block;
     object-fit: cover;
   }
-}
-
-/* --- Lock the page when the drawer is open (mobile) --- */
-@media (max-width: 896px) {
   .grid-2 {
     grid-template-columns: 1fr;
   }
@@ -814,48 +847,6 @@ details summary::-webkit-details-marker {
   /* isolate the drawer so it can't create page overflow */
   .nav.nav-drawer {
     contain: paint; /* prevents accidental layout/overflow side effects */
-  }
-}
-
-/* --- Remove any sneaky horizontal scroll globally --- */
-html,
-body {
-  overflow-x: hidden;
-}
-
-/* ==================================
-     Media Queries
-     ============================ */
-
-/* Mid widths: align Contact with the first line (no vertical centering) */
-@media (max-width: 1100px) {
-  .footer-inner {
-    align-items: flex-start;
-  }
-}
-
-@media (min-width: 897px) {
-  .menu-toggle {
-    display: none;
-  }
-  .site-header .nav-drawer {
-    position: static;
-    width: auto;
-    height: auto;
-    max-height: none;
-    overflow: visible;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    transform: none;
-    transition: none;
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-  }
-  .drawer-backdrop {
-    display: none !important;
   }
 }
 
@@ -901,7 +892,7 @@ body {
 @media (max-width: 600px) {
   .hero {
     /* 66vh is your desktop default — override just for small screens */
-    min-height: clamp(240px, 45vh, 380px); /* trims ~30% on phones */
+    min-height: clamp(240px, 45vh, 380px);
   }
   .card-grid {
     grid-template-columns: 1fr;
@@ -962,5 +953,31 @@ body {
 
   .cta-row {
     gap: 10px;
+  }
+}
+/* ===== HERO: use the image's aspect ratio, no cropping, full-width ===== */
+.hero {
+  background-position: 50% var(--hero-focus-y);
+  aspect-ratio: var(--hero-ar);
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+@media (max-width: 896px) {
+  .hero-inner {
+    padding: 0; /* prevent padding from breaking the exact ratio */
+  }
+}
+
+@media (min-width: 897px) {
+  .hero-inner {
+    padding: var(--space-6) 0;
+  }
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+  .hero {
+    /* height = width * (H/W). Example below is for 16:9 (9/16) */
+    min-height: calc(100vw * (9 / 16));
   }
 }
