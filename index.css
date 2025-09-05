@@ -34,8 +34,6 @@
   --header-h: 74px; /* fixed header height */
   --font-stack: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
     Arial, sans-serif;
-  --hero-ar: 16 / 9;
-  --hero-focus-y: 20%;
 }
 
 * {
@@ -895,10 +893,9 @@ details summary::-webkit-details-marker {
   .hero {
     aspect-ratio: auto;
     /* Smoothly grows from ~280px at 440px wide to ~360px at 600px wide */
-    height: clamp(280px, calc(37.5vw + 115px), 360px);
-
-    background-size: cover;       /* crop sides instead of bottom */
-    background-position: top center; /* keep top visible */
+    height: clamp(280px, calc(50vw + 60px), 360px);
+    background-size: cover;
+    background-position: top center;
     padding: 0;
   }
 
