@@ -34,6 +34,7 @@
   --header-h: 74px; /* fixed header height */
   --font-stack: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
     Arial, sans-serif;
+  --hero-text-allow: 220px;
 }
 
 * {
@@ -285,10 +286,7 @@ body.drawer-open .menu-toggle .hamburger .bar:nth-child(3) {
   background: var(--hero-image) top center / cover no-repeat;
   color: #fff;
   text-align: center;
-
-  /* default: aspect-ratio on wider screens, no fixed height */
-  aspect-ratio: 16 / 9;
-  height: auto;
+  /* no fixed height here; media queries below will handle it */
   padding: 0;
 }
 .hero-inner {
@@ -888,26 +886,48 @@ details summary::-webkit-details-marker {
   }
 }
 
-/* Smooth transition between 440px and 600px */
+/* Base ≥601px */
+@media (min-width: 601px) {
+  .hero {
+    aspect-ratio: auto;
+    height: min(
+      calc(100svh - var(--header-h) - var(--hero-text-allow)),
+      calc(100vw * 9 / 16)
+    );
+    min-height: 340px;
+    background-size: cover;
+    background-position: center bottom; /* favor bottom when space is tight */
+  }
+  .hero-inner {
+    padding: clamp(12px, 3vh, 24px) 0;
+  }
+}
+
+/* Tall screens — place AFTER the block above */
+@media (min-width: 601px) and (min-height: 950px) {
+  :root {
+    --hero-text-allow: 0px;
+  } /* let hero fully expand */
+
+  .hero {
+    height: min(calc(100vw * 9 / 16), calc(100svh - var(--header-h)));
+    max-height: none;
+    /* min-height: 0; */ /* optional */
+    background-size: cover; /* no letterboxing */
+    background-position: top center; /* reveal top when there’s room */
+  }
+}
 @media (max-width: 600px) {
   .hero {
     aspect-ratio: auto;
-    /* Smoothly grows from ~280px at 440px wide to ~360px at 600px wide */
     height: clamp(280px, calc(50vw + 60px), 360px);
     background-size: cover;
-    background-position: top center;
-    padding: 0;
+    background-position: top center; /* keep top visible on phones */
   }
-
   .hero-inner {
     padding: clamp(12px, 4vh, 24px) 0;
     position: relative;
     z-index: 1;
-  }
-
-  .card-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
   }
 }
 
