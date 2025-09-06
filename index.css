@@ -35,6 +35,7 @@
   --font-stack: "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto,
     Arial, sans-serif;
   --hero-text-allow: 220px;
+  --peek: 0px;
 }
 
 * {
@@ -886,53 +887,67 @@ details summary::-webkit-details-marker {
   }
 }
 
-/* Base ≥601px — bottom anchored, grows with viewport height */
-@media (min-width: 601px) {
-  .hero {
-    aspect-ratio: auto;
-    height: min(
-      calc(100svh - var(--header-h) - var(--hero-text-allow)),
-      calc(100vw * 9 / 16)
-    );
-    min-height: 340px;
-    background-size: cover;
-    background-position: center bottom; /* always keep the bottom visible */
-    padding: 0;
-  }
-  .hero-inner {
-    padding: clamp(12px, 3vh, 24px) 0;
-  }
-}
-
 /* Base: smooth scaling on ≥601px */
 @media (min-width: 601px) {
   :root {
     --hero-text-allow: clamp(120px, 14vh, 220px);
   }
+  .hero {
+    aspect-ratio: auto;
+    height: min(
+      calc(100svh - var(--header-h) - var(--hero-text-allow) - var(--peek)),
+      calc(100vw * 9 / 16)
+    );
+    min-height: 340px;
+    background-size: cover;
+    background-position: center bottom;
+    padding: 0;
+  }
+}
+
+/* Safari/iPad fix — uses dvh if supported */
+@supports (height: 100dvh) {
+  @media (min-width: 601px) {
+    .hero {
+      height: min(
+        calc(100dvh - var(--header-h) - var(--hero-text-allow) - var(--peek)),
+        calc(100vw * 9 / 16)
+      );
+    }
+  }
+}
+
+/* iPad portrait: add extra space under hero text */
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  :root {
+    --peek: 72px;
+  } /* tweak 56–96px to taste */
+}
+
+/* iPad landscape: a bit less */
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
+  :root {
+    --peek: 48px;
+  } /* tweak 32–56px to taste */
 }
 
 /* iPad (regular + Pro) — always ~20px more space under text */
-@media ((hover: none) and (pointer: coarse) and (min-width: 768px) and (max-width: 1366px)),
-  (min-width: 768px) and (max-width: 1366px) {
+@media (hover: none) and (pointer: coarse) and (min-width: 768px) and (max-width: 1366px) {
   :root {
     --hero-text-allow: calc(clamp(120px, 14vh, 220px) - 28px);
   }
 }
 
-@media (min-width: 601px) and (min-height: 820px) {
-  .hero {
-    background-position: top center;
-  }
+@media (min-width: 601px) and (min-height: 820px) and (hover: hover) and (pointer: fine) {
+  .hero { background-position: top center; }
 }
-/* Very tall DESKTOP screens only */
-@media (min-width: 1025px) and (min-height: 950px) {
-  :root {
-    --hero-text-allow: 0px;
-  }
+/* Very tall DESKTOP screens only (exclude iPads) */
+@media (min-width: 1025px) and (min-height: 950px) and (hover: hover) and (pointer: fine) {
+  :root { --hero-text-allow: 0px; }
   .hero {
     height: min(calc(100vw * 9 / 16), calc(100svh - var(--header-h)));
     max-height: none;
-    background-position: top center; /* was center bottom */
+    background-position: top center;
   }
 }
 @media (max-width: 600px) {
