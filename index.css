@@ -924,7 +924,7 @@ details summary::-webkit-details-marker {
 /* Optional iPad-ish window: nudge a little more so the next section doesn’t peek */
 @media (min-width: 768px) and (max-width: 1080px) and (min-height: 680px) {
   :root {
-    --hero-text-allow: 120px;
+    --hero-text-allow: 100px;
   }
 }
 
@@ -951,6 +951,9 @@ details summary::-webkit-details-marker {
     padding: clamp(12px, 4vh, 24px) 0;
     position: relative;
     z-index: 1;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
   }
 }
 
