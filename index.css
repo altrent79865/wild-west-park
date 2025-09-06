@@ -886,7 +886,7 @@ details summary::-webkit-details-marker {
   }
 }
 
-/* Base ≥601px */
+/* Base ≥601px — bottom anchored, grows with viewport height */
 @media (min-width: 601px) {
   .hero {
     aspect-ratio: auto;
@@ -896,25 +896,48 @@ details summary::-webkit-details-marker {
     );
     min-height: 340px;
     background-size: cover;
-    background-position: center bottom; /* favor bottom when space is tight */
+    background-position: center bottom; /* always keep the bottom visible */
+    padding: 0;
   }
   .hero-inner {
     padding: clamp(12px, 3vh, 24px) 0;
   }
 }
 
-/* Tall screens — place AFTER the block above */
+/* Start revealing the top a bit sooner by reserving less space for text */
+@media (min-width: 601px) and (min-height: 600px) {
+  :root {
+    --hero-text-allow: 160px;
+  } /* was 220px */
+}
+@media (min-width: 601px) and (min-height: 680px) {
+  :root {
+    --hero-text-allow: 140px;
+  }
+}
+@media (min-width: 601px) and (min-height: 720px) {
+  :root {
+    --hero-text-allow: 120px;
+  }
+}
+
+/* Optional iPad-ish window: nudge a little more so the next section doesn’t peek */
+@media (min-width: 768px) and (max-width: 1080px) and (min-height: 680px) {
+  :root {
+    --hero-text-allow: 120px;
+  }
+}
+
+/* Very tall screens — let the hero reach its full 16:9 height */
 @media (min-width: 601px) and (min-height: 950px) {
   :root {
     --hero-text-allow: 0px;
-  } /* let hero fully expand */
-
+  }
   .hero {
     height: min(calc(100vw * 9 / 16), calc(100svh - var(--header-h)));
     max-height: none;
-    /* min-height: 0; */ /* optional */
-    background-size: cover; /* no letterboxing */
-    background-position: top center; /* reveal top when there’s room */
+    background-size: cover;
+    background-position: center bottom; /* still anchor to bottom */
   }
 }
 @media (max-width: 600px) {
