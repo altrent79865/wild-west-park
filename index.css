@@ -917,33 +917,33 @@ details summary::-webkit-details-marker {
   }
 }
 
-/* iPad portrait: add extra space under hero text */
-@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
-  :root {
-    --peek: 72px;
-  } /* tweak 56–96px to taste */
-}
-
 /* iPad landscape: a bit less */
 @media (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
   :root {
-    --peek: 48px;
-  } /* tweak 32–56px to taste */
+    --peek: calc(48px + 20px);
+  }
+  .hero-inner {
+    padding-bottom: calc(var(--space-6) + 10px);
+  }
 }
 
 /* iPad (regular + Pro) — always ~20px more space under text */
-@media (hover: none) and (pointer: coarse) and (min-width: 768px) and (max-width: 1366px) {
+@media (hover: none) and (pointer: coarse) and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) {
   :root {
     --hero-text-allow: calc(clamp(120px, 14vh, 220px) - 28px);
   }
 }
 
 @media (min-width: 601px) and (min-height: 820px) and (hover: hover) and (pointer: fine) {
-  .hero { background-position: top center; }
+  .hero {
+    background-position: top center;
+  }
 }
 /* Very tall DESKTOP screens only (exclude iPads) */
 @media (min-width: 1025px) and (min-height: 950px) and (hover: hover) and (pointer: fine) {
-  :root { --hero-text-allow: 0px; }
+  :root {
+    --hero-text-allow: 0px;
+  }
   .hero {
     height: min(calc(100vw * 9 / 16), calc(100svh - var(--header-h)));
     max-height: none;
