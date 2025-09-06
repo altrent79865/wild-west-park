@@ -904,40 +904,35 @@ details summary::-webkit-details-marker {
   }
 }
 
-/* Start revealing the top a bit sooner by reserving less space for text */
-@media (min-width: 601px) and (min-height: 600px) {
+/* Base: smooth scaling on ≥601px */
+@media (min-width: 601px) {
   :root {
-    --hero-text-allow: 160px;
-  } /* was 220px */
-}
-@media (min-width: 601px) and (min-height: 680px) {
-  :root {
-    --hero-text-allow: 140px;
-  }
-}
-@media (min-width: 601px) and (min-height: 720px) {
-  :root {
-    --hero-text-allow: 120px;
+    --hero-text-allow: clamp(120px, 14vh, 220px);
   }
 }
 
-/* Optional iPad-ish window: nudge a little more so the next section doesn’t peek */
-@media (min-width: 768px) and (max-width: 1080px) and (min-height: 680px) {
+/* iPad (regular + Pro) — always ~20px more space under text */
+@media ((hover: none) and (pointer: coarse) and (min-width: 768px) and (max-width: 1366px)),
+  (min-width: 768px) and (max-width: 1366px) {
   :root {
-    --hero-text-allow: 100px;
+    --hero-text-allow: calc(clamp(120px, 14vh, 220px) - 28px);
   }
 }
 
-/* Very tall screens — let the hero reach its full 16:9 height */
-@media (min-width: 601px) and (min-height: 950px) {
+@media (min-width: 601px) and (min-height: 820px) {
+  .hero {
+    background-position: top center;
+  }
+}
+/* Very tall DESKTOP screens only */
+@media (min-width: 1025px) and (min-height: 950px) {
   :root {
     --hero-text-allow: 0px;
   }
   .hero {
     height: min(calc(100vw * 9 / 16), calc(100svh - var(--header-h)));
     max-height: none;
-    background-size: cover;
-    background-position: center bottom; /* still anchor to bottom */
+    background-position: top center; /* was center bottom */
   }
 }
 @media (max-width: 600px) {
