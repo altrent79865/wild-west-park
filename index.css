@@ -950,25 +950,33 @@ details summary::-webkit-details-marker {
     background-position: top center;
   }
 }
+/* ===== Phones: smooth between 600 → 500 without jumps ===== */
 @media (max-width: 600px) {
-  /* your existing sizing */
-  .hero {
-    aspect-ratio: auto;
-    height: clamp(320px, 65vh, 440px);
-    background-size: cover;
-    background-position: top center;
+  :root {
+    /* base for small phones; adjusted again below 500px */
+    --hero-min: 320px;
+    --hero-fluid: calc(58vw + 10vh); /* mixes width+height to scale smoothly */
+    --hero-max: 440px;
+    --hero-focus-y: 20%; /* show more top of the photo */
+  }
 
-    /* add these to stop the peek */
-    overflow: hidden; /* keeps content inside hero */
-    position: relative; /* ensures overflow works properly */
+  .hero {
+    height: clamp(var(--hero-min), var(--hero-fluid), var(--hero-max));
+    background-size: cover;
+    background-position: 50% var(--hero-focus-y);
+    aspect-ratio: auto;
+
+    /* stop any “peek” below the text */
+    overflow: hidden;
+    position: relative;
   }
 
   .hero-inner {
     padding-top: 16px;
-    padding-bottom: 8px; /* tiny buffer */
+    padding-bottom: 6px; /* tiny buffer; not a big gap */
   }
 
-  /* tighten vertical rhythm */
+  /* tighten vertical rhythm so text doesn’t push the image down */
   .hero :is(h1, h2, h3, p, .hero-more-text) {
     margin-bottom: 8px;
   }
@@ -976,27 +984,28 @@ details summary::-webkit-details-marker {
     margin-bottom: 0;
   }
 
-  /* stop the next section from pulling under the hero */
+  /* make sure next section can’t slide under the hero */
   .section.alt {
     margin-top: 0;
-  } /* overrides the -1rem base */
-
-  .card-grid {
-    grid-template-columns: 1fr;
   }
 }
 
+/* Under 500px: only nudge the variables (no structural flip) */
 @media (max-width: 500px) {
-  .hero {
-    height: 280px;
-    min-height: 0;
-    aspect-ratio: auto;
-    background-size: cover;
-    background-position: top center;
+  :root {
+    --hero-min: 300px; /* a touch shorter if needed */
+    --hero-fluid: calc(64vw + 6vh); /* shows a bit more of the photo */
+    --hero-max: 420px;
+    --hero-focus-y: 14%; /* nudge focus down a bit */
   }
 
-  .hero-inner {
-    padding: clamp(12px, 4vh, 24px) 0;
+  /* optional: slightly smaller hero text so more image is visible */
+  .hero h1 {
+    font-size: clamp(1.8rem, 6.2vw, 2.1rem);
+  }
+  .hero p,
+  .hero .hero-free-text {
+    font-size: clamp(1rem, 3.2vw, 1.125rem);
   }
 }
 
