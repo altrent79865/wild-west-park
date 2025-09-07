@@ -951,23 +951,42 @@ details summary::-webkit-details-marker {
   }
 }
 @media (max-width: 600px) {
+  /* your existing sizing */
   .hero {
     aspect-ratio: auto;
-    height: clamp(280px, calc(50vw + 60px), 360px);
+    height: clamp(320px, 65vh, 440px);
     background-size: cover;
-    background-position: top center; /* keep top visible on phones */
+    background-position: top center;
+
+    /* add these to stop the peek */
+    overflow: hidden; /* keeps content inside hero */
+    position: relative; /* ensures overflow works properly */
   }
+
   .hero-inner {
-    padding: clamp(12px, 4vh, 24px) 0;
-    position: relative;
-    z-index: 1;
+    padding-top: 16px;
+    padding-bottom: 8px; /* tiny buffer */
   }
+
+  /* tighten vertical rhythm */
+  .hero :is(h1, h2, h3, p, .hero-more-text) {
+    margin-bottom: 8px;
+  }
+  .hero :is(h1, h2, h3, p, .hero-more-text):last-child {
+    margin-bottom: 0;
+  }
+
+  /* stop the next section from pulling under the hero */
+  .section.alt {
+    margin-top: 0;
+  } /* overrides the -1rem base */
+
   .card-grid {
     grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 440px) {
+@media (max-width: 500px) {
   .hero {
     height: 280px;
     min-height: 0;
