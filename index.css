@@ -741,7 +741,8 @@ details summary::-webkit-details-marker {
   .nav.nav-drawer a {
     display: block;
     width: 100%;
-    padding: 0.9rem 20px;
+    padding: 1rem 20px 0.8rem 21px;
+    line-height: 1.1;
     border-bottom: 1px solid #f0e6d6;
     color: var(--brand-dark);
     font-size: 1.0625rem;
@@ -987,6 +988,9 @@ details summary::-webkit-details-marker {
 
   .section.alt {
     margin-top: 0;
+  }
+  section[id] {
+    scroll-margin-top: calc(var(--header-h) - 10px); /* reduce by 6px */
   }
   .card-grid {
     grid-template-columns: 1fr;
