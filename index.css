@@ -950,33 +950,34 @@ details summary::-webkit-details-marker {
     background-position: top center;
   }
 }
-/* ===== Phones: smooth between 600 → 500 without jumps ===== */
+
 @media (max-width: 600px) {
   :root {
-    /* base for small phones; adjusted again below 500px */
     --hero-min: 320px;
-    --hero-fluid: calc(58vw + 10vh); /* mixes width+height to scale smoothly */
+    --hero-fluid: calc(58vw + 10vh);
     --hero-max: 440px;
-    --hero-focus-y: 20%; /* show more top of the photo */
+    --hero-focus-y: 20%;
   }
 
   .hero {
-    height: clamp(var(--hero-min), var(--hero-fluid), var(--hero-max));
+    /* single height rule with a small offset */
+    height: clamp(
+      calc(var(--hero-min) + 20px),
+      calc(var(--hero-fluid) + 20px),
+      calc(var(--hero-max) + 20px)
+    );
     background-size: cover;
     background-position: 50% var(--hero-focus-y);
     aspect-ratio: auto;
-
-    /* stop any “peek” below the text */
     overflow: hidden;
     position: relative;
   }
 
   .hero-inner {
     padding-top: 16px;
-    padding-bottom: 6px; /* tiny buffer; not a big gap */
+    padding-bottom: 6px;
   }
 
-  /* tighten vertical rhythm so text doesn’t push the image down */
   .hero :is(h1, h2, h3, p, .hero-more-text) {
     margin-bottom: 8px;
   }
@@ -984,12 +985,10 @@ details summary::-webkit-details-marker {
     margin-bottom: 0;
   }
 
-  /* make sure next section can’t slide under the hero */
   .section.alt {
     margin-top: 0;
   }
 }
-
 /* Under 500px: only nudge the variables (no structural flip) */
 @media (max-width: 500px) {
   :root {
