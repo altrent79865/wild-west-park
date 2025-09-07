@@ -904,6 +904,8 @@ details summary::-webkit-details-marker {
     background-position: center bottom;
     padding: 0;
   }
+  section[id] { scroll-margin-top: calc(var(--header-h) - 28px); }
+  [id="top"]   { scroll-margin-top: calc(var(--header-h) - 28px); }
 }
 
 /* Safari/iPad fix — uses dvh if supported */
@@ -990,7 +992,7 @@ details summary::-webkit-details-marker {
     margin-top: 0;
   }
   section[id] {
-    scroll-margin-top: calc(var(--header-h) - 10px); /* reduce by 6px */
+    scroll-margin-top: calc(var(--header-h) - 10px); 
   }
   .card-grid {
     grid-template-columns: 1fr;
