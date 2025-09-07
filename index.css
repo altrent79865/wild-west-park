@@ -988,6 +988,7 @@ details summary::-webkit-details-marker {
   .section.alt {
     margin-top: 0;
   }
+  .card-grid { grid-template-columns: 1fr; }
 }
 /* Under 500px: only nudge the variables (no structural flip) */
 @media (max-width: 500px) {
